@@ -171,6 +171,7 @@ public class GenericArray<T> {
         genericArray.add(0,"100");
         System.out.println(genericArray.toString());
 
+
     }
 
 }
