@@ -1,5 +1,7 @@
 package com.example.data_structure.java;
 
+import android.util.LruCache;
+
 import java.util.Scanner;
 
 
@@ -178,6 +180,7 @@ public class LRUBaseLinkedList<T> {
         while (true){
             lruBaseLinkedList.add(sc.nextInt());
             lruBaseLinkedList.printAll();
+
         }
     }
 }
