@@ -13,6 +13,44 @@ public class QuickSort {
      * @param a 为数组
      * @param n 为长度
      */
+    public static void reverse_quickSort(int[] a, int n) {
+        reverse_quickSortInternally(a, 0, n - 1);
+    }
+
+    private static void reverse_quickSortInternally(int[] a, int p, int q) {
+
+        if (p >= q)
+            return;
+        int k = reverse_partition(a, p, q);
+        reverse_quickSortInternally(a, p, k - 1);
+        reverse_quickSortInternally(a, k + 1, q);
+
+    }
+
+    public static int reverse_partition(int[] a, int p, int r) {
+        int point = a[r];
+        int i = p;
+        for (int j = p; j < r; j++) {
+            if (a[j] > point) {
+                int tmp = a[i];
+                a[i] = a[j];
+                a[j] = tmp;
+                i++;
+
+            }
+        }
+
+        int tmp = a[r];
+        a[r] = a[i];
+        a[i] = tmp;
+        return i;
+    }
+
+
+    /**
+     * @param a 为数组
+     * @param n 为长度
+     */
     public static void quickSort(int[] a, int n) {
 
         quickSortInternally(a, 0, n - 1);
@@ -60,14 +98,15 @@ public class QuickSort {
     }
 
     public static void main(String[] args) {
-        int[] a = new int[]{2, 6, 3, 1, 8, 5, 10};
-        int k = partition(a, 0, 4);
+        int[] a = new int[]{2, 6, 3,23,12,4,9,13,1, 8, 5, 10};
+        reverse_quickSort(a,a.length);
 
         for (int i = 0; i < a.length; i++) {
-            System.out.println(a[i]);
+            System.out.print(a[i]+"\t");
         }
-
-        System.out.println("hahah" + k);
+        System.out.println("hahah" + a[3-1]);
 
     }
+
+
 }
